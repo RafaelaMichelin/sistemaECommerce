@@ -1,6 +1,0 @@
-Manifest-Version: 1.0
-Built-By: Acer
-Build-Jdk: 21.0.7
-Main-Class: br.edu.unicesumar.sistemaECommerce.MainApp
-Created-By: Maven Integration for Eclipse
-
