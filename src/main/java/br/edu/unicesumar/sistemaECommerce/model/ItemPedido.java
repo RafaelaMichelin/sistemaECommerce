@@ -16,6 +16,7 @@ public class ItemPedido {
     
     @Id 
     @GeneratedValue(strategy = GenerationType.AUTO )
+    private Long id;
 
 	@ManyToOne
     @JoinColumn(name = "id_produto")
@@ -33,6 +34,10 @@ public class ItemPedido {
         this.produto = produto;
         this.quantidade = quantidade;
      }
+
+     public Long getId(){
+          return id;
+     } 
 
        public Produto getProduto() {
         return produto;
