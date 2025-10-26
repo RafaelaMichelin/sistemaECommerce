@@ -20,6 +20,12 @@ public class Cliente {
 
     @Column(name="nome_cliente")
     private String nome;
+     
+    @Column(name="cpf_cliente", nullable = false)
+    private String cpf;
 
+    @Column(name="email_cliente")
+    private String email;
+    
     
 }
