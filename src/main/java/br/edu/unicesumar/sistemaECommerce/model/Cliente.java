@@ -2,6 +2,7 @@ package br.edu.unicesumar.sistemaECommerce.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -26,6 +27,11 @@ public class Cliente {
 
     @Column(name="email_cliente")
     private String email;
-    
+
+
+    //Referenciar a classe Endereco
+    @Embedded
+    private Endereco endereco;
+
     
 }
