@@ -1,25 +1,31 @@
-<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
-        version="2.2">
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence" 
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence 
+                                 https://jakarta.ee/xml/ns/persistence/persistence_3_1.xsd"
+             version="3.1">
 
-    <persistence-unit name="exemplo_unicesumar" transaction-type="RESOURCE_LOCAL">
-        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-
-        <class>br.edu.unicesumar.sistemaECommerce.model.Cliente</class>
-
-
-
+    <persistence-unit name="ECommercePU" transaction-type="RESOURCE_LOCAL">
+        <class>br.edu.unicesumar.sistemaECommerce.Model.Produto</class>
+        <class>br.edu.unicesumar.sistemaECommerce.Model.Cliente</class>
+        <class>br.edu.unicesumar.sistemaECommerce.Model.Endereco</class>
+        <class>br.edu.unicesumar.sistemaECommerce.Model.Categoria</class>
         <properties>
-            <property name="jakarta.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver" />
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/sistemaecommerce" />
-            <property name="jakarta.persistence.jdbc.user" value="root" />
+            <!-- Conexão com o banco MariaDB -->
+            <property name="jakarta.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/sistemaecommerce"/>
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            
 
+            <!-- Dialeto Hibernate para MariaDB -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MariaDBDialect"/>
-            <property name="hibernate.show_sql" value="true"/>
 
+            <!-- Criação automática das tabelas -->
             <property name="hibernate.hbm2ddl.auto" value="update"/>
+
+            <!-- Mostrar SQL no console -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
         </properties>
     </persistence-unit>
-
 </persistence>

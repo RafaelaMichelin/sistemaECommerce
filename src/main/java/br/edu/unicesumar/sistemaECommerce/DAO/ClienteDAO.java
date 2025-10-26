@@ -3,7 +3,6 @@ package br.edu.unicesumar.sistemaECommerce.DAO;
 import java.util.List;
 
 import br.edu.unicesumar.sistemaECommerce.model.Cliente;
-import br.edu.unicesumar.sistemaECommerce.model.Endereco;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.EntityManager;
 
