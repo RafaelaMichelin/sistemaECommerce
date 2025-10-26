@@ -1,4 +1,7 @@
+br\edu\unicesumar\sistemaECommerce\model\Endereco.class
+br\edu\unicesumar\sistemaECommerce\DAO\DAO.class
 module-info.class
 br\edu\unicesumar\sistemaECommerce\model\Cliente.class
 br\edu\unicesumar\sistemaECommerce\FXMLController.class
 br\edu\unicesumar\sistemaECommerce\MainApp.class
+br\edu\unicesumar\sistemaECommerce\DAO\ClienteDAO.class
