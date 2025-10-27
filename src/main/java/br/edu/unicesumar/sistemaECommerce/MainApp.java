@@ -1,47 +1,51 @@
 package br.edu.unicesumar.sistemaECommerce;
 
+import br.edu.unicesumar.sistemaECommerce.DAO.CategoriaDAO;
+import br.edu.unicesumar.sistemaECommerce.DAO.ProdutoDAO;
+import br.edu.unicesumar.sistemaECommerce.DAO.DAO;
+import br.edu.unicesumar.sistemaECommerce.model.Categoria;
+import br.edu.unicesumar.sistemaECommerce.model.Produto;
+import br.edu.unicesumar.sistemaECommerce.model.Cliente;
+import br.edu.unicesumar.sistemaECommerce.model.Pedido;
 
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import javafx.scene.layout.VBox;
-import javafx.scene.control.Label;
-
-
-import java.io.IOException;
-
-
-public class MainApp extends Application {
-    private static Stage stage;
-
-    @Override
-    public void start(@SuppressWarnings("exports") Stage s) throws IOException {
-        stage=s;
-        setRoot("primary","");
-    }
-
-    static void setRoot(String fxml) throws IOException {
-        setRoot(fxml,stage.getTitle());
-    }
-
-    static void setRoot(String fxml, String title) throws IOException {
-        Scene scene = new Scene(loadFXML(fxml));
-        stage.setTitle(title);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("/fxml/"+fxml + ".fxml"));
-        return fxmlLoader.load();
-    }
-
-
+public class MainApp {
     public static void main(String[] args) {
-        launch(args);
-    }
 
+        System.out.println(" Iniciando teste de persistência...");
+
+        try {
+            // Criando uma categoria
+            Categoria categoria = new Categoria();
+            categoria.setNome("Eletrônicos");
+
+            // Criando um produto
+            Produto produto = new Produto();
+            produto.setNome("Notebook ");
+            produto.setPreco(4999.99);
+           
+
+            // Instanciando DAOs
+            CategoriaDAO categoriaDAO = new CategoriaDAO();
+            ProdutoDAO produtoDAO = new ProdutoDAO();
+
+            // Salvando no banco
+            categoriaDAO.save(categoria);
+            produtoDAO.save(produto);
+
+            // Listando produtos
+            System.out.println("\nProdutos cadastrados:");
+            for (Produto p : produtoDAO.listAllProdutos()) {
+                System.out.println("- " + p.getNome() + " | R$ " + p.getPreco());
+            }
+
+            System.out.println("\n Conexão e persistência bem-sucedidas!");
+        } catch (Exception e) {
+            System.out.println(" Erro ao testar persistência:");
+            e.printStackTrace();
+        } finally {
+            DAO.closeFactory();
+        }
+    }
 }
+

@@ -2,25 +2,26 @@ package br.edu.unicesumar.sistemaECommerce.DAO;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence; 
+import jakarta.persistence.Persistence;
 
 public abstract class DAO<T> {
-    
+
     private static EntityManagerFactory emf;
+
     
-    // Bloco estático para inicializar o EntityManagerFactory uma única vez
-    static {
-        emf = Persistence.createEntityManagerFactory("sistemaECommerce"); 
+    protected static EntityManagerFactory getFactory() {
+        if (emf == null) {
+            emf = Persistence.createEntityManagerFactory("sistemaecommerce");
+        }
+        return emf;
     }
 
-    protected DAO() { } 
+    protected DAO() { }
 
-    // Retorna uma nova instância de EntityManager para a operação
     protected EntityManager getEntityManager() {
-        return emf.createEntityManager();
+        return getFactory().createEntityManager();
     }
-    
-    // INSERÇÃO
+
     public void save(T entity) {
         EntityManager em = getEntityManager();
         try {
@@ -37,7 +38,6 @@ public abstract class DAO<T> {
         }
     }
 
-    // ATUALIZAÇÃO
     public void update(T entity) {
         EntityManager em = getEntityManager();
         try {
@@ -54,12 +54,10 @@ public abstract class DAO<T> {
         }
     }
 
-    // DELETE
     public void delete(T entity) {
         EntityManager em = getEntityManager();
         try {
             em.getTransaction().begin();
-            
             em.remove(em.contains(entity) ? entity : em.merge(entity));
             em.getTransaction().commit();
         } catch (Exception e) {
@@ -72,7 +70,6 @@ public abstract class DAO<T> {
         }
     }
 
-  
     public static void closeFactory() {
         if (emf != null && emf.isOpen()) {
             emf.close();
