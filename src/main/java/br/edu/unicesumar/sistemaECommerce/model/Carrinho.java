@@ -1,16 +1,15 @@
 package br.edu.unicesumar.sistemaECommerce.model;
 
-import jakarta.persistence.Column;
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table; 
+import jakarta.persistence.JoinColumn; 
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.JoinColumn;  
-import jakarta.persistence.CascadeType;
-import java.util.List;
-import java.util.ArrayList;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name="carrinho_tbl")
@@ -22,7 +21,7 @@ public class Carrinho {
     private Long id;
 
 	@OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="carrinho_id")
+    @JoinColumn(name="id_carrinho")
 
 
     private List<ItemCarrinho> itens;
