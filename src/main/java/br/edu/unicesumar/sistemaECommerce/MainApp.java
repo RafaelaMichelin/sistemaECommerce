@@ -1,15 +1,12 @@
 package br.edu.unicesumar.sistemaECommerce;
 
 import br.edu.unicesumar.sistemaECommerce.DAO.CategoriaDAO;
-import br.edu.unicesumar.sistemaECommerce.DAO.ProdutoDAO;
 import br.edu.unicesumar.sistemaECommerce.DAO.ClienteDAO;
-import br.edu.unicesumar.sistemaECommerce.DAO.CarrinhoDAO;
 import br.edu.unicesumar.sistemaECommerce.DAO.DAO;
+import br.edu.unicesumar.sistemaECommerce.DAO.ProdutoDAO;
 import br.edu.unicesumar.sistemaECommerce.model.Categoria;
-import br.edu.unicesumar.sistemaECommerce.model.Produto;
 import br.edu.unicesumar.sistemaECommerce.model.Cliente;
-import br.edu.unicesumar.sistemaECommerce.model.Pedido;
-import br.edu.unicesumar.sistemaECommerce.model.Carrinho;
+import br.edu.unicesumar.sistemaECommerce.model.Produto;
 
 public class MainApp {
     public static void main(String[] args) {
