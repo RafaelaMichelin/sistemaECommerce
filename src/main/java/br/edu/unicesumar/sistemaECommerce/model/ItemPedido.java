@@ -5,9 +5,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table; 
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.JoinColumn; 
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table; 
 
 @Entity
 @Table(name="itempedido_tbl")
@@ -18,6 +18,10 @@ public class ItemPedido {
     @GeneratedValue(strategy = GenerationType.AUTO )
     private Long id;
 
+
+
+
+    
 	@ManyToOne
     @JoinColumn(name = "id_produto")
     private Produto produto;
@@ -30,7 +34,7 @@ public class ItemPedido {
 
      public ItemPedido(){}
 
-     public ItemPedido(Produto protudo, int quantidade){
+     public ItemPedido(Produto produto, int quantidade){
         this.produto = produto;
         this.quantidade = quantidade;
      }

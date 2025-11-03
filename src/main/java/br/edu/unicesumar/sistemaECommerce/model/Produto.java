@@ -6,6 +6,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.JoinColumn; 
+import jakarta.persistence.ManyToOne;
+
+
 
 @Entity
 @Table(name="produto_tbl")
@@ -25,18 +29,21 @@ public class Produto {
 
     @Column (name="preco_produto")
     private double preco;
-
-  //CATEGORIA  
-
+ 
+    //Relação: Muitos para um entre produto e categoria
+ 	@ManyToOne
+    @JoinColumn(name = "id_categoria")
+    private Categoria categoria;
 
   //CONSTRUCTOR 
     public Produto(){}
 
-    public Produto(int id, String nome, String descricao, double preco){
+    public Produto(int id, String nome, String descricao, double preco, Categoria categoria){
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
+        this.categoria = categoria;
     }
 
     //GETTERS E SETTERS
@@ -71,5 +78,10 @@ public class Produto {
         this.preco = preco;
     }
 
-    //CATEGORIA
+    public Categoria getCategoria(){
+        return this.categoria;
+    }
+    public void setCategoria(Categoria categoria){
+        this.categoria = categoria;
+    }
 }

@@ -5,9 +5,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table; 
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 
 @Entity
@@ -28,10 +28,10 @@ public class ItemCarrinho {
 
 
      //CONSTRUCTOR 
-
+     
      public ItemCarrinho(){}
 
-     public ItemCarrinho(Produto protudo, int quantidade){
+     public ItemCarrinho(Produto produto, int quantidade){
         this.produto = produto;
         this.quantidade = quantidade;
      }

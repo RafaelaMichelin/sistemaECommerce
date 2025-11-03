@@ -3,6 +3,7 @@ package br.edu.unicesumar.sistemaECommerce.model;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,7 +12,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.persistence.Column;
 
 
 @Entity
@@ -24,15 +24,17 @@ public class Pedido {
 
 
     //Relação com Cliente 
-	@ManyToOne
+	@ManyToOne 
+    //Coluna que faz o vinculo entre pedido e cliente        //*FK
     @JoinColumn(name = "id_cliente")
     private Cliente cliente;
 
-    //Relação com ItemPedido
+    //Relação com ItemPedido, um pedido tem vários itens
    @OneToMany(cascade = CascadeType.ALL)
    @JoinColumn(name="id_pedido")
 
- private List<ItemPedido> itens;
+   //Vinculo LISTA, porque vai retornar muitas informações
+    private List<ItemPedido> itens;
 
  @Column(name="valor_total")
  private double valorTotal;
@@ -53,6 +55,8 @@ public class Pedido {
         return id;
     }
 
+
+
     public Cliente getCliente(){
         return cliente;
     }
@@ -60,6 +64,8 @@ public class Pedido {
     public void setCliente(Cliente cliente){
         this.cliente = cliente;
     }
+
+
 
     public List<ItemPedido> getItens(){
         return itens;
