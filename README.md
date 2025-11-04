@@ -1,6 +1,6 @@
-<h1 align="center"> Sistema E-commerce - Conexão com Banco de Dados</h1>
+<h1 align="center"> Sistema E-commerce - Camada persistência Java/MySQL com DAO</h1>
 <h2> :pushpin: Descrição do projeto:</h2>
-<p>Este projeto tem como objetivo demonstrar a conexão de uma aplicação Java com um banco de dados relacional, aplicando o padrão DAO (Data Access Object) para acesso aos dados e utilizando classes MODEL para representar as entidades do sistema.
+<p>Este projeto foca na implementação da Camada de Persistência de um sistema E-commerce, aplicando o padrão DAO e Classes MODEL para o mapeamento de entidades. O trabalho atual estabelece a base para a futura expansão do projeto para a arquitetura MVC (Model-View-Controller).
 </p>
 <h4 align="center"> Projeto em andamento :construction: </h4>
 
