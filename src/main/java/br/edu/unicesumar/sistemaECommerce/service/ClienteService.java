@@ -6,13 +6,13 @@ import java.util.List;
 
 public class ClienteService {
     
-    private ClienteDAO ClienteDAO;
+    private ClienteDAO clienteDAO;
 
     public ClienteService(){
-        ClienteDAO = new ClienteDAO();
+        clienteDAO = new ClienteDAO();
 
     }
-    //save
+    //save cliente
     public void saveCliente(Cliente cliente){
         if(cliente.getNome() == null || cliente.getNome().isEmpty()){
             return;
@@ -26,7 +26,7 @@ public class ClienteService {
             return;
         }
 
-        ClienteDAO.save(cliente);
+        clienteDAO.save(cliente);
     }
 
     //update
@@ -34,17 +34,17 @@ public class ClienteService {
         if(cliente.getNome() == null || cliente.getNome().isEmpty()){
          return;
     }
-        ClienteDAO.update(cliente);
+        clienteDAO.update(cliente);
 }
 
     //delete 
        public void deleteCliente(Cliente cliente) {
-        ClienteDAO.delete(cliente);
+        clienteDAO.delete(cliente);
     }
 
     //Listar clientes 
       public List<Cliente> listarClientes() {
-        return ClienteDAO.listAllClientes();
+        return clienteDAO.listAllClientes();
     }
 
 }

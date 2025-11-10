@@ -2,6 +2,7 @@ package br.edu.unicesumar.sistemaECommerce;
 
 import br.edu.unicesumar.sistemaECommerce.DAO.CategoriaDAO;
 import br.edu.unicesumar.sistemaECommerce.DAO.ClienteDAO;
+import br.edu.unicesumar.sistemaECommerce.DAO.ProdutoDAO;
 import br.edu.unicesumar.sistemaECommerce.DAO.DAO;
 import br.edu.unicesumar.sistemaECommerce.DAO.ProdutoDAO;
 import br.edu.unicesumar.sistemaECommerce.model.Categoria;
@@ -13,16 +14,16 @@ public class MainApp {
 
         System.out.println("Iniciando teste de persistência...");
 
-        ClienteDAO clienteDAO = new ClienteDAO(); 
+        ProdutoDAO produtoDAO = new ProdutoDAO(); 
 
         try {
-            // buscar cliente existente pelo id
-            Cliente cliente = new Cliente();
-            cliente.setId(1); 
+            // busca existente pelo id
+            Produto produto = new Produto();
+            produto.setId(52); 
 
-            clienteDAO.delete(cliente); // deletando
+            produtoDAO.delete(produto); // deletando
 
-            System.out.println("\nCliente deletado com sucesso!");
+            System.out.println("\nProduto deletado com sucesso!");
         } catch (Exception e) {
             System.out.println("Erro ao testar persistência:");
             e.printStackTrace();
