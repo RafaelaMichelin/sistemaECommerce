@@ -24,5 +24,28 @@ public class ClienteController {
  
         }
     }
-    
+
+    @FXML
+  public void updateCliente() {
+    Cliente c = new Cliente();
+    c.setId(1);
+    c.setNome("");
+    c.setCpf("");
+    c.setEmail("");
+
+    clienteService.updateCliente(c);
+
+    label.setText("Cliente atualizado com sucesso!");
 }
+
+//Deletar
+ @FXML
+public void deleteCliente() {
+    Cliente c = new Cliente();
+    c.setId(1); 
+
+    clienteService.deleteCliente(c);
+
+    label.setText("Cliente removido com sucesso!");
+}
+} 

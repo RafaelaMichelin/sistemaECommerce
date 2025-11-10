@@ -11,46 +11,25 @@ import br.edu.unicesumar.sistemaECommerce.model.Produto;
 public class MainApp {
     public static void main(String[] args) {
 
-        System.out.println(" Iniciando teste de persistência...");
+        System.out.println("Iniciando teste de persistência...");
+
+        ClienteDAO clienteDAO = new ClienteDAO(); 
 
         try {
-            // Criando uma categoria
-            Categoria categoria = new Categoria();
-            categoria.setNome("Papelaria");
-          
-
-            // Criando um produto
-            Produto produto = new Produto();
-            produto.setNome("Lápis ");
-            produto.setDescricao("Lápis de cor");
-            produto.setPreco(10.00);
-
-            //Criando um Cliente 
+            // buscar cliente existente pelo id
             Cliente cliente = new Cliente();
-            cliente.setNome("Renan");
-            cliente.setEmail("Renan@gmail.com");
-           
+            cliente.setId(1); 
 
+            clienteDAO.delete(cliente); // deletando
 
-            // Instanciando DAOs
-            CategoriaDAO categoriaDAO = new CategoriaDAO();
-            ProdutoDAO produtoDAO = new ProdutoDAO();
-            ClienteDAO clienteDAO = new ClienteDAO();
-
-            // Salvando no banco
-            categoriaDAO.save(categoria);
-            produtoDAO.save(produto);
-            clienteDAO.save(cliente);
-
-          
-
-            System.out.println("\n Conexão e persistência bem-sucedidas!");
+            System.out.println("\nCliente deletado com sucesso!");
         } catch (Exception e) {
-            System.out.println(" Erro ao testar persistência:");
+            System.out.println("Erro ao testar persistência:");
             e.printStackTrace();
         } finally {
             DAO.closeFactory();
         }
     }
 }
+
 
