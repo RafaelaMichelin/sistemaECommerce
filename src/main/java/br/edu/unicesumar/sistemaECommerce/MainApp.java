@@ -19,7 +19,7 @@ public class MainApp {
         try {
             // busca existente pelo id
             Produto produto = new Produto();
-            produto.setId(52); 
+            produto.setId(102); 
 
             produtoDAO.delete(produto); // deletando
 
