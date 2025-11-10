@@ -15,15 +15,16 @@ public class MainApp {
         System.out.println("Iniciando teste de persistência...");
 
         ProdutoDAO produtoDAO = new ProdutoDAO(); 
+        CategoriaDAO categoriaDAO = new CategoriaDAO();
 
         try {
             // busca existente pelo id
-            Produto produto = new Produto();
-            produto.setId(102); 
+            Categoria categoria = new Categoria();
+            categoria.setId(52); 
 
-            produtoDAO.delete(produto); // deletando
+            categoriaDAO.delete(categoria); // deletando
 
-            System.out.println("\nProduto deletado com sucesso!");
+            System.out.println("\nCategoria deletada com sucesso!");
         } catch (Exception e) {
             System.out.println("Erro ao testar persistência:");
             e.printStackTrace();
