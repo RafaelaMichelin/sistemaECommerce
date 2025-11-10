@@ -92,7 +92,7 @@ public class Pedido {
         return statusPedido;
     }
 
-    public void setStatusPedido(){
+    public void setStatusPedido(StatusPedido statusPedido){
         this.statusPedido = statusPedido;
     }
 }
