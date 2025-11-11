@@ -2,7 +2,7 @@ package br.edu.unicesumar.sistemaECommerce.service;
 
 import br.edu.unicesumar.sistemaECommerce.DAO.ProdutoDAO;
 import br.edu.unicesumar.sistemaECommerce.model.Produto;
-import br.edu.unicesumar.sistemaECommerce.model.Produto;
+
 
 public class ProdutoService {
     
@@ -16,6 +16,10 @@ public class ProdutoService {
     //método save produto
     public void saveProduto(Produto produto){
         if(produto.getNome() == null || produto.getNome().isEmpty()){
+            return;
+        }
+        if(produto.getCategoria() == null){
+            System.out.println("Erro: o produto precisa estar associado a uma categoria!");
             return;
         }
 
