@@ -1,7 +1,13 @@
-<h1 align="center"> Sistema E-commerce - Camada persistência Java/MySQL com DAO</h1>
+<h1 align="center"> Sistema e-commerce - MVC </h1>
 <h2> :pushpin: Descrição do projeto:</h2>
-<p>Este projeto foca na implementação da Camada de Persistência de um sistema E-commerce, aplicando o padrão DAO e Classes MODEL para o mapeamento de entidades. O trabalho atual estabelece a base para a futura expansão do projeto para a arquitetura MVC (Model-View-Controller).
+<p>Este projeto foca no desenvolvimento de um sistema de e-commerce utilizando o padrão de arquitetura MVC(Model-View-Controller) para garantir a separação de responsabilidades, modularidade e manutenibilidade do código, realizando a persistencia com o Banco de dados.
 </p>
+<h2> :classical_building: Arquitetura </h2>
+
+* **Model:** Responsável pela lógica de negócios e pela manipulação dos dados. Esta camada inclui a implementação do padrão DAO (Data Access Object) para persistência e as Classes MODEL para o mapeamento de entidades.
+* **Controller:** A camada controller atua processando as entradas do usuário, interagindo com o Model para obter ou manipular dados e decidindo qual View deve ser apresentada.
+* **View:** A camada View é responsável pela apresentação visual dos dados ao usuário (interface).
+  
 <h4 align="center"> Projeto em andamento :construction: </h4>
 
 
@@ -13,12 +19,20 @@
 
 `- JDBC (Java Database Connectivity): API nativa do JAVA para realizar conexão com o Banco`
 
-`- Maven`
+`- Padrões de projeto: MVC, DAO e Service`
+
+`- IDE: VsCode `
+
+`- Versionamento: Git/Github`
 
 
-<h2>🧠 Conceitos Aplicados</h2>
+<h2>:rocket: Próximos passos</h2>
 
-* Padrão DAO (Data Access Object)
+1. Finalizar toda a regra de negócio na camada Service e controller
+2. Implementar todas as interfaces(Views) necessárias para interação.
+3. Integrar a camada View aos Controllers
+
+<h2> :brain: Conceitos aplicados </h2>
 
 * Separação de camadas (Model / DAO / View / Controller)
 
