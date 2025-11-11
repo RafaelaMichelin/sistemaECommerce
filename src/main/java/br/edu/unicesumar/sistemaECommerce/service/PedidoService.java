@@ -57,7 +57,7 @@ public class PedidoService {
 
         pedido.setStatusPedido(novoStatusPedido);
         pedidoDAO.update(pedido);
-        System.out.println("✅ Status do Pedido atualizado com sucesso para: " + novoStatusPedido);
+        System.out.println(" Status do Pedido atualizado com sucesso para: " + novoStatusPedido);
     }
 
     // DELETAR PEDIDO
